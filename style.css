@@ -109,3 +109,74 @@ footer {
   padding: 20px 0;
   margin-top: 50px;
 }
+/* ====== SECTORS GRID (cards with images) ====== */
+.sector-section{
+  padding: 48px 20px;
+  background: linear-gradient(180deg, rgba(48,160,88,0.02) 0%, rgba(255,249,230,0.02) 100%);
+}
+.sector-section .container{ max-width:1100px; margin:0 auto; }
+
+.sector-section h2{
+  text-align:center;
+  font-size:28px;
+  color:#114b35;
+  margin-bottom:6px;
+}
+.sector-section .sub{
+  text-align:center;
+  color:#5d756c;
+  margin-bottom:22px;
+  font-size:15px;
+}
+
+/* grid */
+.sector-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:18px;
+  align-items:stretch;
+}
+
+/* card */
+.sector-card{
+  display:block;
+  background:#fff;
+  border-radius:12px;
+  overflow:hidden;
+  text-decoration:none;
+  color:inherit;
+  box-shadow: 0 8px 22px rgba(20,40,20,0.06);
+  transition: transform .36s cubic-bezier(.2,.9,.25,1), box-shadow .36s;
+  border:1px solid rgba(15,50,30,0.02);
+  min-height:220px;
+}
+.sector-card:hover{ transform: translateY(-8px); box-shadow: 0 18px 46px rgba(20,80,40,0.12); }
+
+/* image wrapper (keeps aspect ratio) */
+.sector-img{ width:100%; height:160px; overflow:hidden; background:#eefaf0; display:block; }
+.sector-img img{
+  width:100%; height:100%; object-fit:cover;
+  transition: transform .6s cubic-bezier(.2,.9,.25,1);
+}
+.sector-card:hover .sector-img img{ transform: scale(1.08); }
+
+/* body */
+.sector-body{ padding:14px 16px; }
+.sector-body h4{ margin:0 0 6px; color:#114b35; font-size:16px; }
+.sector-body p{ margin:0; color:#5d756c; font-size:13.5px; }
+
+/* special promo cards style */
+.sector-card.special .sector-body h4{ color:#bf6f00; }
+
+/* responsive */
+@media (max-width:1000px){
+  .sector-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width:640px){
+  .sector-grid{ grid-template-columns: 1fr; }
+  .sector-img{ height:180px; }
+}
+
+/* fade-up show helper (if you use the same script) */
+.sector-section.fade-up{ opacity:0; transform:translateY(18px); transition: all .8s ease; }
+.sector-section.fade-up.visible{ opacity:1; transform:none; }
